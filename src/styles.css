@@ -1,0 +1,75 @@
+:root {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #1f2937;
+  background: #f8fafc;
+  font-synthesis: none;
+  direction: rtl;
+  text-align: right;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fdf2f8, #eff6ff);
+}
+
+* { box-sizing: border-box; }
+
+a { color: #2563eb; }
+
+.app-shell { max-width: 1100px; margin: 0 auto; padding: 24px; }
+header { margin-bottom: 24px; }
+.grid { display: grid; gap: 24px; grid-template-columns: 1fr 1fr; }
+.stats-grid { display: grid; gap: 16px; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-bottom: 24px; }
+.stats-grid--small { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.stat-card { background: white; border-radius: 16px; padding: 16px; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); display: flex; flex-direction: column; gap: 6px; }
+.stat-card span { color: #64748b; font-size: 0.95rem; }
+.stat-card strong { font-size: 1.4rem; color: #4c1d95; }
+.card { background: white; border-radius: 16px; padding: 24px; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); }
+.button-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.table-wrapper { overflow-x: auto; margin-top: 18px; }
+.stats-table { width: 100%; border-collapse: collapse; }
+.stats-table th,
+.stats-table td { border: 1px solid #e2e8f0; padding: 10px 12px; text-align: right; }
+.stats-table th { background: #f8fafc; }
+.table-invitation-image { width: 120px; max-width: 100%; border-radius: 12px; }
+.guest-welcome { margin: 18px 0; padding: 18px; background: #f8fafc; }
+.form-stack { display: flex; flex-direction: column; gap: 14px; }
+label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; }
+input, textarea, button { padding: 12px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 1rem; }
+textarea { min-height: 90px; resize: vertical; }
+button { background: #7c3aed; color: white; cursor: pointer; border: none; }
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+.secondary-button { background: #dbeafe; color: #1d4ed8; }
+.danger-button { background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
+.notice { padding: 12px; border-radius: 10px; background: #ede9fe; color: #5b21b6; margin-bottom: 12px; }
+.choice-card { border: 1px solid #e9d5ff; border-radius: 16px; padding: 18px; background: #faf5ff; margin-bottom: 16px; }
+.attendance-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
+.attendance-button { flex: 1; min-width: 180px; font-weight: 700; }
+.attendance-button--attend { background: #10b981; }
+.attendance-button--decline { background: #ef4444; }
+.event-list { display: flex; flex-direction: column; gap: 12px; }
+.event-card { border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.event-card-header { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+.event-card-header h3 { margin: 0 0 4px; }
+.event-card-header p { margin: 0; color: #64748b; }
+.event-metrics { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 0; list-style: none; }
+.event-metrics li { background: #f8fafc; border-radius: 999px; padding: 6px 10px; font-size: 0.95rem; }
+.card-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.guest-page { max-width: 680px; margin: 0 auto; }
+.assigned-card { border: 1px solid #e9d5ff; border-radius: 14px; padding: 16px; background: #faf5ff; margin: 12px 0; }
+.invitation-image { width: 100%; max-width: 320px; border-radius: 16px; margin: 12px 0; }
+.modal-backdrop { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.65); display: flex; align-items: center; justify-content: center; padding: 16px; z-index: 1000; }
+.modal-card { background: white; border-radius: 16px; padding: 20px; width: min(100%, 480px); box-shadow: 0 20px 60px rgba(15, 23, 42, 0.25); }
+.modal-close { margin-bottom: 12px; background: #f1f5f9; color: #334155; }
+.modal-image { width: 100%; border-radius: 14px; margin-top: 12px; }
+@media (max-width: 800px) {
+  .grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .event-card-header { flex-direction: column; }
+}
