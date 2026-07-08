@@ -600,29 +600,22 @@ function GuestPage() {
         return;
       }
 
-      const { data: newGuest, error: guestError } = await supabase
-        .from('guests')
-        .insert({
-          event_id: event.id,
-          name: guestForm.name.trim() || null,
-          phone: normalizePhoneNumber(guestForm.phone) || null,
-          invitation_id: null,
-          attendance_status: 'declined',
-        })
-        .select()
-        .single();
+    const { error: declineError } = await supabase
+  .from('declined_attendance')
+  .insert({
+    event_id: event.id,
+  });
 
-      if (guestError || !newGuest) {
-        setMessage(`فشل حفظ الاختيار: ${formatSupabaseError(guestError)}`);
-        setLoading(false);
-        return;
-      }
+if (declineError) {
+  setMessage(`فشل حفظ الاعتذار: ${formatSupabaseError(declineError)}`);
+  setLoading(false);
+  return;
+}
 
-      setRegisteredGuest(newGuest);
-      setShowRegistrationForm(false);
-      setMessage('نأمل لقاءكم في فرصة قادمة.');
-      setLoading(false);
-      return;
+setShowRegistrationForm(false);
+setMessage('نشكر لك دعوتنا ونتشرف بك في مناسبات قادمة 💜');
+setLoading(false);
+return;
     }
 
     setShowRegistrationForm(true);
@@ -712,7 +705,7 @@ function GuestPage() {
         name: trimmedName,
         phone: normalizedPhone,
         invitation_id: null,
-        attendance_status: 'attending',
+        attendance_status: 'confirmed',
       })
       .select()
       .single();
